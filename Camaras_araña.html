@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+Leonardo Perez
+Leonardo Santana
+
 <html>
     <head>
         <title>Araña</title>
@@ -32,9 +35,9 @@
         		
 
         var camera2,controls;
-        var mapWidth = 360, mapHeight = 190;
+        var mapWidth = 420, mapHeight = 390;
         var w = window.innerWidth, h = window.innerHeight;
-        var frustumSize = 6;
+        var frustumSize = 5;
 				
 		var upArrow = false;
 		var downArrow = false;
@@ -56,7 +59,7 @@
 			scene = new THREE.Scene();
             scene.background = new THREE.Color( 0xCD2020 );
 			aspect = window.innerWidth / window.innerHeight;
-			camera = new THREE.PerspectiveCamera( 45, aspect, 0.1, 1000);
+			camera = new THREE.PerspectiveCamera( 45, aspect, 0.1, 500);
 			renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
@@ -140,8 +143,8 @@
             //CREAR LAS GEOMETRÍAS CAMARAS
                      
         //Far plane
-        var width = 20;
-        var height = 20;
+        var width = 50;
+        var height = 50;
         var FOV = 45.0;			//Ángulo de apertura
         var sinFOV = Math.sin((FOV/2.0)*Math.PI/180.0);
         var aR = width/height;	//AspectRatio
@@ -191,7 +194,7 @@
             
 			//ELEMENTOS DE ESCENA
 							  
-			var size = 10;
+			var size = 20;
 			var arrowSize = 1;
 			var divisions = size;
 			var origin = new THREE.Vector3( 0, 0, 0 );
@@ -211,9 +214,9 @@
             var colora = new THREE.Color( 0xCD2020);
 		  
 		  	//CREAR LAS GRILLAS PARA EL ESCENARIO
-		  	var axesHelper1 = new THREE.AxesHelper( size/10 );
-			var axesHelper2 = new THREE.AxesHelper( size/10 );
-			var axesHelper3 = new THREE.AxesHelper( size/10 );
+		  	var axesHelper1 = new THREE.AxesHelper( size/20 );
+			var axesHelper2 = new THREE.AxesHelper( size/20 );
+			var axesHelper3 = new THREE.AxesHelper( size/20 );
 		  	var gridHelperXY = new THREE.GridHelper( size, divisions, color1, color1);
 		  	var gridHelperXZ = new THREE.GridHelper( size, divisions, color2, color2 );
 		  	var gridHelperYZ = new THREE.GridHelper( size, divisions, color2, color2 );
@@ -395,7 +398,7 @@
 			
 			renderer.render( scene, camera );
             
-             camera.position.x = 15;
+           camera.position.x = 15;
            camera.position.y = 12;	 
            camera.position.z = 15;			
            camera.lookAt( origin );
@@ -558,18 +561,18 @@
             renderer.setScissorTest( true )
             renderer.render( scene, camera );
                         
-            renderer.setViewport(w/64, h-270,mapWidth, mapHeight);
-            renderer.setScissor( w/64, h-270,mapWidth, mapHeight );
+            renderer.setViewport(w/164, h-390,mapWidth, mapHeight);
+            renderer.setScissor( w/164, h-390,mapWidth, mapHeight );
             renderer.setScissorTest( true );
             renderer.render( scene, camera_top );	
                     
-           renderer.setViewport( w/4, h-270, mapWidth, mapHeight );
-            renderer.setScissor(w/4, h-270, mapWidth, mapHeight );
+           renderer.setViewport( w/2.95, h-390, mapWidth, mapHeight );
+            renderer.setScissor(w/2.95, h-390, mapWidth, mapHeight );
             renderer.setScissorTest( true );
             renderer.render( scene, camera_right);
                               
-            renderer.setViewport(w/2, h-270, mapWidth, mapHeight );
-            renderer.setScissor(w/2, h-270, mapWidth, mapHeight );
+            renderer.setViewport(w/1.55, h-390, mapWidth, mapHeight );
+            renderer.setScissor(w/1.55, h-390, mapWidth, mapHeight );
             renderer.setScissorTest( true );
             renderer.render( scene, camera_front);
         
