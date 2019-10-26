@@ -84,25 +84,25 @@
 			//var sphere1 = new THREE.Mesh( sphereGeometry1 );
 			//sphere1.translateZ( 4 );
 			var ojos = new THREE.Mesh( ojos );
-			ojos.translateX( 1.2 );
+			ojos.translateX( 1.1 );
 			ojos.translateZ( 0.5 );
 			ojos.translateY( 1 );
 			ojos.rotateY(THREE.Math.degToRad(10));
 			//var Cylinder = new THREE.Mesh( Cylindergeometry );
 			var ojos1 = new THREE.Mesh( ojos1 );
 			ojos1.translateX( 1.1 );
-			ojos1.translateZ( -0.4 );
+			ojos1.translateZ( -0.5 );
 			ojos1.translateY( 1 );
-			ojos1.rotateY(THREE.Math.degToRad(110));
-			
+			ojos1.rotateY(THREE.Math.degToRad(80));
+	//		
 			var Cylinder = new THREE.Mesh( Cylindergeometry );
 			Cylinder.translateY( 2 );
 			//Cylinder2.rotateX(THREE.Math.degToRad(90));
 			var Cylinder1 = new THREE.Mesh( Cylindergeometry1 );
-			Cylinder1.translateY( 2.3 );
-			Cylinder1.translateZ( 0.3 );
+			Cylinder1.translateY( 2.2 );
+			Cylinder1.translateZ( 0.26 );
 			//Cylinder3.translateZ( 1 );
-			Cylinder1.rotateX(THREE.Math.degToRad(50));
+			Cylinder1.rotateX(THREE.Math.degToRad(60));
 			
 
 			
@@ -119,9 +119,10 @@
 			
 //			//APLICAR LAS OPERACIONES
 			//var result1 = sphereCSG.union( sphere1CSG );
+			
+			var result1 = ojos1CSG.union( ojosCSG );
+			var result2 = result1.union( sphereCSG );
 			var result3 = CylinderCSG.union( Cylinder1CSG );
-			var result1 = ojosCSG.union( ojos1CSG );
-			var result2 = sphereCSG.union( result1 );
 			var result4 = sphereCSG.union( result3 );
 			//var result1 = boxCSG.subtract( sphereCSG );	//CAJA MENOS ESFERA
 			//var result2= boxCSG.intersect( sphereCSG );	//INTERSECCIÓN - CAJA Y ESFERA
@@ -132,13 +133,13 @@
 			var C2T1 = THREE.CSG.toMesh( result1 );
 			var C2T2 = THREE.CSG.toMesh( result2 );
 			var C2T3 = THREE.CSG.toMesh( result3 );
-			var C2T4 = THREE.CSG.toMesh( result4 );
+			//var C2T4 = THREE.CSG.toMesh( result4 );
 			
 			//
 			C2T1.material = material1; 
 			C2T2.material = material1; 
 			C2T3.material = material1;
-			C2T4.material = material1;
+			//C2T4.material = material1;
 			
 			//
 			//cube.material = material2;
@@ -148,7 +149,7 @@
 			C2T1.translateZ(4);
 			C2T2.translateZ(-4);
 			C2T3.translateX(-4);
-			C2T4.translateX(4);
+			//C2T4.translateX(4);
 			
 			
 			//AGREGAR A LA ESCENA LOS DIFERENTES ELEMENTOS
@@ -156,7 +157,7 @@
 			scene.add( C2T1 );
 			scene.add( C2T2 );
 			scene.add( C2T3 );
-			scene.add( C2T4 );
+			//scene.add( C2T4 );
 			//scene.add( Cylinder );
 			//scene.add( Cylinder2 );
 			//scene.add( Cylinder3 );
